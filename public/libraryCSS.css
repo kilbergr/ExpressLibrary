@@ -1,0 +1,37 @@
+button{
+background-color: #C8D6BF;
+border-radius: 6px;
+padding: 6px;
+font-family: 'Raleway';
+}
+
+table{
+	margin-left: 30%;
+	border-color: #1A1F1E;
+}
+
+th {
+background-color: #6CBDB5;
+padding: 5px;
+text-align: center;
+color: #1A1F1E;
+}
+
+tr{
+	padding:5px;
+}
+
+td{
+background-color: #93CCC6;
+padding:5px;
+}
+
+h2{
+color: #1A1F1E;
+
+}
+body{
+	background-color: #E3DFBA;
+	font-family: 'Raleway';
+	color: #1A1F1E;
+}

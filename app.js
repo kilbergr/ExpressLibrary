@@ -9,35 +9,42 @@ id = 1;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req, res){
 	res.redirect("/books");
 })
 
 app.get("/books", function(req, res){
-	res.render("index", {books:books});
+	res.render("pages/index", {books:books});
 });
 
 app.post("/books", function(req, res){
 	var book = {};
-	book.title = req.body.title;
+	if(req.body.title){
+		book.title = req.body.title;
 	book.author = req.body.author;
 	book.date = req.body.date;
 	book.id = id;
 	id++;
 	books.push(book);
 	res.redirect("/");
+	}
+	else{
+		res.redirect("/");
+	}
+	
 })
 
 app.get("/books/new", function(req, res){
-	res.render("new");
+	res.render("pages/new");
 })
 
 app.get("/books/:id", function(req, res){
 	books.forEach(function(book){
 			if(book.id === Number(req.params.id)){
 				var bookChoice = book;
-				res.render("show", {bookChoice: bookChoice});
+				res.render("pages/show", {bookChoice: bookChoice});
 			} 
 	})
 })
@@ -50,17 +57,17 @@ app.delete("/books/:id", function(req, res){
 			if(book.id === Number(req.params.id)){
 				var bookChoice = book;
 				books.splice(books.indexOf(bookChoice), 1);
-				console.log(books);
-				res.redirect("/");
 			}
 	})
+		res.redirect("/");
 })
 
 app.get("/books/:id/edit", function(req, res){
 		books.forEach(function(book){
 			if(book.id === Number(req.params.id)){
 				var bookChoice = book;
-				res.render("edit", {bookChoice:bookChoice});
+				res.render("pages/edit", {bookChoice:bookChoice});
+				console.log(books);
 			}
 		})	
 })
@@ -76,6 +83,9 @@ app.put("/books/:id", function(req,res){
   })
 });
 
+app.get('*', function(req, res){
+  res.render("404");
+});
 
 app.listen(3000, function(){
 	console.log("Server started");

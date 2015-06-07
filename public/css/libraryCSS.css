@@ -1,0 +1,23 @@
+button{
+background-color: #C8D6BF;
+border-radius: 6px;
+padding: 6px;
+font-family: 'Raleway';
+}
+
+th {
+background-color: #6CBDB5;
+}
+
+td{
+background-color: #93CCC6;
+}
+
+h2{
+color: #1A1F1E;
+
+}
+body{
+	background-color: #E3DFBA;
+	font-family: 'Raleway';
+}
