@@ -19,6 +19,25 @@ app.get("/books", function(req, res){
 	res.render("pages/index", {books:books});
 });
 
+app.get("/books/sort", function(req, res){
+	books.sort(function(bookA, bookB){
+      var titleA= bookA.title.toLowerCase();
+      var titleB= bookB.title.toLowerCase();
+      {
+        if (titleA<titleB){
+          return -1;
+        }
+        if (titleA>titleB){
+          return 1;
+        }
+        else return 0;
+      }	
+	})
+	console.log(books);
+res.render("pages/alph", {books: books});
+});
+
+
 app.post("/books", function(req, res){
 	var book = {};
 	if(req.body.title){
@@ -33,7 +52,6 @@ app.post("/books", function(req, res){
 	else{
 		res.redirect("/");
 	}
-	
 })
 
 app.get("/books/new", function(req, res){

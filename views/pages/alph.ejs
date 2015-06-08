@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include ../partials/head %>
+	<title>Sorted</title>
+</head>
+<body>
+<h2>Your books, alphabetically by title: </h2>
+	<table>
+		<thead>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Year Published</th>
+		</thead>
+		<% books.forEach(function(book){ %>
+		<tr>
+			<td><%= book.title%></td>
+			<td><%= book.author%></td>
+			<td><%= book.date%></td>
+		</tr>
+		<% }) %>
+	</table>
+	<a href="/">
+	<a href="/books/new"><button>Add Book</button></a>
+	 <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+</html>
