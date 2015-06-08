@@ -33,7 +33,6 @@ app.get("/books/sort", function(req, res){
         else return 0;
       }	
 	})
-	console.log(books);
 res.render("pages/alph", {books: books});
 });
 
@@ -85,7 +84,6 @@ app.get("/books/:id/edit", function(req, res){
 			if(book.id === Number(req.params.id)){
 				var bookChoice = book;
 				res.render("pages/edit", {bookChoice:bookChoice});
-				console.log(books);
 			}
 		})	
 })
