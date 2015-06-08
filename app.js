@@ -100,7 +100,7 @@ app.put("/books/:id", function(req,res){
 });
 
 app.get('*', function(req, res){
-  res.render("404");
+  res.render("pages/404");
 });
 
 app.listen(3000, function(){
