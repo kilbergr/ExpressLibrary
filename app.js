@@ -46,10 +46,10 @@ app.post("/books", function(req, res){
 	book.id = id;
 	id++;
 	books.push(book);
-	res.redirect("/");
+	res.redirect("/books");
 	}
 	else{
-		res.redirect("/");
+		res.redirect("/books");
 	}
 })
 
@@ -76,7 +76,7 @@ app.delete("/books/:id", function(req, res){
 				books.splice(books.indexOf(bookChoice), 1);
 			}
 	})
-		res.redirect("/");
+		res.redirect("/books");
 })
 
 app.get("/books/:id/edit", function(req, res){
