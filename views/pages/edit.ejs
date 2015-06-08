@@ -5,7 +5,7 @@
 	<title>Edit</title>
 </head>
 <body>
-	<form action="/books?=_method=PUT" method="POST">
+	<form action="/books/<%=bookChoice.id%>?_method=PUT" method="POST">
 		<label for="title">Title: 
 			<input type="text" name="title" value="<%= bookChoice.title %>">
 		</label>
