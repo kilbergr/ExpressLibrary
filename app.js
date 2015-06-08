@@ -63,6 +63,9 @@ app.get("/books/:id", function(req, res){
 				var bookChoice = book;
 				res.render("pages/show", {bookChoice: bookChoice});
 			} 
+			else{
+				res.render("pages/404");
+			}
 	})
 })
 
@@ -75,6 +78,9 @@ app.delete("/books/:id", function(req, res){
 				var bookChoice = book;
 				books.splice(books.indexOf(bookChoice), 1);
 			}
+				else{
+				res.render("pages/404");
+			}
 	})
 		res.redirect("/books");
 })
@@ -84,6 +90,9 @@ app.get("/books/:id/edit", function(req, res){
 			if(book.id === Number(req.params.id)){
 				var bookChoice = book;
 				res.render("pages/edit", {bookChoice:bookChoice});
+			}
+				else{
+				res.render("pages/404");
 			}
 		})	
 })
